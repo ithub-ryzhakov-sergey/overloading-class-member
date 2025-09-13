@@ -5,6 +5,7 @@
 // - учитывайте культуру и NumberStyles
 
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 
 namespace App.MethodOverloading.Task2_ParseOverloads;
 
@@ -13,13 +14,27 @@ public static class NumberParser
     /// Разбирает строку в int. При неверном формате должен кидать FormatException
     public static int Parse(string s)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return Convert.ToInt32(s);
+        }
+        catch
+        {
+            throw new FormatException();
+        }
     }
 
     /// Разбирает строку в int. При неверном формате возвращает defaultValue
     public static int Parse(string s, int defaultValue)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return Convert.ToInt32(s);
+        }
+        catch
+        {
+            return defaultValue;
+        }
     }
 
     /// Разбирает строку с учётом стиля и культуры

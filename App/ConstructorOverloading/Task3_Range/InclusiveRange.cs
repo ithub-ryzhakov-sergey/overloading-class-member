@@ -11,18 +11,33 @@ public class InclusiveRange
     // Конструктор (start, end)
     public InclusiveRange(int start, int end)
     {
-        throw new NotImplementedException();
+        if (start > end)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
+        this.Start = start;
+        this.End = end;
     }
 
     // Конструктор из строки "start..end"
     public InclusiveRange(string s)
     {
-        throw new NotImplementedException();
+        string[] tmp = s.Split("..");
+        if (tmp.Length != 2)
+        {
+            throw new FormatException();
+        }
+        if (Convert.ToInt32(tmp[0]) > Convert.ToInt32(tmp[1])){
+            throw new ArgumentOutOfRangeException(); 
+        }
+        this.Start = Convert.ToInt32(tmp[0]);
+        this.End = Convert.ToInt32(tmp[1]);        
     }
 
     // Конструктор из одного числа
     public InclusiveRange(int single)
     {
-        throw new NotImplementedException();
+        this.Start = single;
+        this.End = single;
     }
 }

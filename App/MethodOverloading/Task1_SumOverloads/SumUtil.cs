@@ -9,18 +9,27 @@ public static class SumUtil
     // Складывает два int
     public static int Sum(int a, int b)
     {
-        throw new NotImplementedException();
+        return a + b;
     }
 
     // Складывает три int
     public static int Sum(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        return a + b + c;
     }
 
     // Складывает произвольное количество значений
     public static int Sum(params int[] values)
     {
-        throw new NotImplementedException();
+        if (values == null)
+        {
+            return 0;
+        }
+        int res = 0;
+        for (int i = 0; i < values.Length; i++)
+        {
+            res += values[i];
+        }
+        return res;
     }
 }
